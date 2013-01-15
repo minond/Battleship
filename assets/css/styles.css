@@ -1,0 +1,40 @@
+.hidden {
+	display: none;
+}
+
+#viewport {
+	text-align: center;
+}
+
+#ships {
+	display: none;
+	height: 140px;
+}
+
+#ships .ship {
+	display: inline-block;
+	width: 140px;
+	text-align: center;
+	cursor: pointer;
+	vertical-align: bottom;
+	margin: auto 5px;
+}
+
+#ships .ship img {
+	width: 120px;
+}
+
+/**
+ * help content
+ */
+.h_title {
+	font: bold 17px Arial;
+	margin-bottom: 4px;
+	margin-top: 2px;
+}
+
+.battleships_pic {
+	float: right;
+	width: 320px;
+	top: 50px;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Battleship</title>
+		<link rel="stylesheet" type="text/css" href="/Fabrico/resources/css/form/modal.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+	</head>
+	<body>
+		<!-- game content -->
+		<div id="viewport">
+			<!-- configuration section -->
+			<div id="configuration">
+				<!-- ship picker -->
+				<div id="ships">
+					<div class="ship" data-ship="#{__id}">
+						<img data-template-src="#{src}" />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- templates -->
+		<div class="hidden" id="modal">
+			<div class="modal">
+				<div class="modal_background"></div>
+				<div class="modal_outer">
+					<div class="modal_inner">
+						<div class="modal_content">
+							<div class="modal_header">#{head}</div>
+							<div class="modal_body" style="height: auto; width: #{width}px">#{body}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="hidden" id="help_content">
+			<div class="h_title">Project description:</div>
+			<div class="h_desc">
+				<p>Ships take up multiple grid squares, with each type of ship having a different number of ships (aircraft carrier 5, battleship 4, etc.). Ships are randomly placed by the program, or the player is allowed to place ships.</p>
+				<p>Whether or not the ships are placed by the program, the program ensures that all ships are within the bounds of the grid. There are two grids, one for the player and one for the computer player (game AI).</p>
+			<img src="assets/img/battleships.gif" alt="Battleships!" class="battleships_pic" />
+				<p>Hits and misses are marked on each grid. The program notifies the player when a ship on either grid has been sunk, and the program indicates when the game is over and which player won. The computer player (game AI) makes follow-up shots when it hits, so that whenever it hits one of the player's ships it fires at adjacent squares until it has sunk the ship.</p>
+			</div>
+			<br />
+			<div class="h_title">Available ships:</div>
+			<ul>
+				@{ships <li>#name</li>}
+			</ul>
+			<br />
+			<div class="h_title">Additional resources:</div>
+			<ul>
+				<li>
+					<a href="http://en.wikipedia.org/wiki/Battleship_(game)" target="_self">Wikipedia article</a>
+				</li>
+				<li>
+					<a href="http://www.hasbro.com/games/en_US/shop/details.cfm?R=9DB2FFA9-5056-900B-1067-FF75A9054E4F:en_US" target="_blank">Hasbro game</a>
+				</li>
+			</ul>
+		</div>
+
+		<!-- dependencies -->
+		<script type="text/javascript" src="/Polypus/src/model.js"></script>
+		<script type="text/javascript" src="/Polypus/src/template.js"></script>
+		<script type="text/javascript" src="assets/js/helpers.js"></script>
+		
+		<!-- parts -->
+		<script type="text/javascript" src="assets/js/models.js"></script>
+		<script type="text/javascript" src="assets/js/templates.js"></script>
+		<script type="text/javascript" src="assets/js/ships.js"></script>
+
+		<!-- scripts -->
+		<script type="text/javascript" src="assets/js/actions.js"></script>
+		<script type="text/javascript" src="assets/js/events.js"></script>
+		<script type="text/javascript" src="assets/js/ui.js"></script>
+
+		<!-- game -->
+		<script type="text/javascript" src="assets/js/game.js"></script>
+	</body>
+</html>

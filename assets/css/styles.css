@@ -67,6 +67,13 @@
 }
 
 /**
+ * ship pieces
+ */
+.board.player td.ship-piece {
+	background-color: #cecece;
+}
+
+/**
  * general classes
  */
 .hidden {

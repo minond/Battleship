@@ -1,0 +1,133 @@
+#viewport {
+	text-align: center;
+}
+
+/**
+ * board styles
+ */
+.board_title {
+	font: bold 40px monospace;
+	cursor: default;
+	margin-bottom: 10px;
+}
+
+.board {
+	border-collapse: collapse;
+	border: 1px solid #cccccc;
+}
+
+.board td {
+	border: 1px solid #cccccc;
+}
+
+.board.opponent {
+	margin-bottom: 20px;
+}
+
+.board.opponent td {
+	cursor: pointer;
+	height: 20px;
+	width: 20px;
+}
+
+.board.player td {
+	height: 30px;
+	width: 30px;
+}
+
+/**
+ * missed shot
+ */
+.board td.target-miss {
+	background-image: url(../img/miss.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.board.player td.target-miss {
+	background-size: 39px 41px;
+}
+
+.board.opponent td.target-miss {
+	cursor: default;
+	background-size: 27px 31px;
+}
+
+/**
+ * target hit
+ */
+.board td.target-hit {
+	background-image: url(../img/explosion.png);
+	background-repeat: no-repeat;
+}
+
+.board.opponent td.target-hit {
+	cursor: default;
+	background-size: 34px 26px;
+	background-position: -12px -6px;
+}
+
+.board.player td.target-hit {
+	background-size: 55px 41px;
+	background-position: -22px -9px;
+}
+
+/**
+ * ship pieces
+ */
+.board.player td.ship-piece {
+	background-color: #cecece;
+}
+
+/**
+ * general classes
+ */
+.hidden {
+	display: none;
+}
+
+/**
+ * ships selector
+ */
+#ships {
+	display: none;
+	height: 140px;
+}
+
+#ships .ship {
+	display: inline-block;
+	width: 140px;
+	text-align: center;
+	cursor: pointer;
+	vertical-align: bottom;
+	margin: auto 5px;
+}
+
+#ships .ship img {
+	width: 120px;
+}
+
+/**
+ * help content
+ */
+.h_title {
+	font: bold 17px Arial;
+	margin-bottom: 4px;
+	margin-top: 2px;
+}
+
+.battleships_pic {
+	float: right;
+	width: 320px;
+	top: 50px;
+}
+
+/**
+ * description page specific (assignemnt 1)
+ */
+.descpage {
+	font: 12px Arial;
+	width: 550px;
+	margin: 20px auto;
+	cursor: default;
+}

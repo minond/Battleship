@@ -34,6 +34,27 @@
 			</div>
 		</div>
 
+		<div class="hidden" id="board_template">
+			<table class="board #{who}">
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>
+				@{rows
+					#s
+				}
+					</td>
+				</tr>
+			</table>
+		</div>
+
 		<div class="hidden" id="help_content">
 			<div class="h_title">Project description:</div>
 			<div class="h_desc">

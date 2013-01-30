@@ -84,7 +84,7 @@
  * ships selector
  */
 #ships {
-	display: none;
+	/* display: none; */
 	height: 140px;
 }
 

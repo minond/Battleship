@@ -90,11 +90,9 @@ var elem = {
 		
 		if (el.webkitMatchesSelector) {
 			return el.webkitMatchesSelector(selector);
-		}
-		else if (el.mozMatchesSelector) {
+		} else if (el.mozMatchesSelector) {
 			return el.mozMatchesSelector(selector);
-		}
-		else {
+		} else if (el !== document) {
 			log.error("missing selector match method");
 		}
 	},

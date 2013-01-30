@@ -15,7 +15,8 @@ var ui = {
  * @param string url
  */
 ui.preload = function(url) {
-	new Image(url);
+	var img = new Image;
+	img.src = url;
 };
 
 /**

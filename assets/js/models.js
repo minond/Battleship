@@ -40,3 +40,12 @@ var Piece = new Model({
 	 */
 	ship: Ship
 });
+
+
+/**
+ * represents a board
+ */
+var Board = new Model({
+	rows: 0,
+	columns: 0
+});

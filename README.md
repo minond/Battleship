@@ -2,7 +2,7 @@ Assigment 2.
 
 I library I wrote called Polypus is used to render the board. The board template is bound to the <code>Boards</code> collection which contains the <code>myboard</code> model:
 
-<code>
+```html
 &gt;script type="text/x-template" data-template_bind="Boards"&lt;
 	<table class="board player">
 	{list
@@ -10,4 +10,4 @@ I library I wrote called Polypus is used to render the board. The board template
 	}
 	</table>
 &gt;/script&lt;
-</code>
+```

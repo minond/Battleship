@@ -12,7 +12,7 @@
 			<div id="configuration">
 				<!-- ship picker -->
 				<div id="ships">
-					<script type="text/x-template" data-template:bind="Ship">
+					<script type="text/x-template" data-template_bind="Ships">
 						{list
 							<div class="ship" data-ship_id="{__id}">
 								<img src="{src}" title="{name}" alt="{name} image" />
@@ -25,7 +25,7 @@
 			<center>
 				<br /><br />
 				<div>
-					<script type="text/x-template" data-template:bind="Board">
+					<script type="text/x-template" data-template_bind="Boards">
 						<table class="board player">
 						{list
 							{rows* <tr>{columns* <td></td>}</tr>}

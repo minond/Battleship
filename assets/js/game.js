@@ -1,8 +1,15 @@
 "use strict";
 
-log.msg("starting game...");
+var Boards, Board, myboard;
 
+Board = new Model({
+	rows: 0,
+	columns: 0
+});
 
-// myboard.set_columns(20);
-// action.show_help();
-// ui.render.ship_selector();
+Boards = new Collection(Board);
+
+myboard = Boards.create({
+	rows: 20,
+	columns: 20
+});

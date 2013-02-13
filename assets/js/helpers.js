@@ -9,7 +9,7 @@ var log = {
 	 * @param string*
 	 */
 	msg: function() {
-		console.log.apply(console, Array.prototype.splice.call(arguments, 0));
+		console && console.log.apply(console, Array.prototype.splice.call(arguments, 0));
 	},
 
 	/**
@@ -107,7 +107,7 @@ var elem = {
 		el.innerHTML = str;
 		return el.children[0];
 	}
-}
+};
 
 /**
  * event listeners

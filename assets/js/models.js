@@ -41,7 +41,6 @@ var Piece = new Model({
 	ship: Ship
 });
 
-
 /**
  * represents a board
  */

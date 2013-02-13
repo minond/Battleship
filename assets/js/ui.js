@@ -40,3 +40,23 @@ ui.render.ship_selector = function() {
 		log.error("could not render ship selector, holder not found");
 	}
 };
+
+ui.Modal = new Model({
+	head: "",
+	body: "",
+	width: "",
+	display: Model.enum("block", "none"),
+	show: function(body, head, width) {
+		this.set_body(body);
+		this.set_head(head);
+		this.set_width(width);
+		this.set_display("block");
+		document.body.style.overflowY = "hidden";
+	},
+	hide: function() {
+		this.set_display("none");
+		document.body.style.overflowY = "";
+	}
+});
+
+ui.modal = new ui.Modal({display: "none"});

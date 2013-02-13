@@ -79,6 +79,16 @@
 	background-color: #cecece;
 }
 
+.board td.ship-piece.placing.good {
+	background-color: green;
+	opacity: .5;
+}
+
+.board td.ship-piece.placing.bad {
+	background-color: red;
+	opacity: .5;
+}
+
 /**
  * general classes
  */

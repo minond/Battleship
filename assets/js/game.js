@@ -111,4 +111,6 @@ window.addEventListener("load", function() {
 	listen.click(".modal_close", function() {
 		Modal.popup.hide();
 	});
+
+	Modal.popup.show(Template.list.desc.render(), "Code design", 600);
 });

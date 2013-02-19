@@ -1,0 +1,16 @@
+<div id="modal" style="display: {display? none};">
+	{content? <div class="modal">
+		<div class="modal_background"></div>
+		<div class="modal_outer">
+			<div class="modal_inner">
+				<div class="modal_content">
+					{head! <div class="modal_header">
+						<span>{head}</span>
+						<span class="modal_close">x</span>
+					</div>}
+					<div class="modal_body" style="height: {height? auto}; width: {width? 100}px">{body}</div>
+				</div>
+			</div>
+		</div>
+	</div>}
+</div>

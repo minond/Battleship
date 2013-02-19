@@ -1,35 +1,6 @@
 "use strict";
 
 /**
- * console output
- */
-var log = {
-	/**
-	 * log output
-	 * @param string*
-	 */
-	msg: function() {
-		console && console.log.apply(console, Array.prototype.splice.call(arguments, 0));
-	},
-
-	/**
-	 * warning output
-	 * @param string*
-	 */
-	warn: function() {
-		console.warn.apply(console, Array.prototype.splice.call(arguments, 0));
-	},
-
-	/**
-	 * error output
-	 * @param string*
-	 */
-	error: function() {
-		console.error.apply(console, Array.prototype.splice.call(arguments, 0));
-	}
-};
-
-/**
  * element helpers
  */
 var elem = {

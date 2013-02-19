@@ -9,5 +9,22 @@ var Piece = new Model({
 	 * shipts of the same type.
 	 * @var Ship
 	 */
-	ship: Ship
+	ship: Ship,
+
+	/**
+	 * ship orientation
+	 */
+	orientation: Model.enum("horizontal", "vertical"),
+
+	/**
+	 * board coordinates
+	 * @var int
+	 */
+	x: null,
+
+	/**
+	 * board coordinates
+	 * @var int
+	 */
+	y: null
 });

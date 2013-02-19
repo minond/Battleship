@@ -18,10 +18,6 @@ template {
 	border: 1px solid #cccccc;
 }
 
-.board.opponent {
-	margin-bottom: 20px;
-}
-
 .board.opponent td {
 	cursor: pointer;
 	height: 20px;
@@ -75,6 +71,19 @@ template {
  */
 .board.player td.ship-piece {
 	background-color: #cecece;
+}
+
+.board_holder {
+	display: inline-block;
+	padding: 20px;
+	border: 1px solid #cecece;
+	box-shadow: 4px 4px 8px #cecece;
+	margin: 20px;
+}
+
+.board_title {
+	font: bold 40px monospace;
+	margin-bottom: 20px;
 }
 
 /**

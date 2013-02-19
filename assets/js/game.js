@@ -1,64 +1,114 @@
 "use strict";
 
-// log.msg("starting game...");
-var myboard = Boards.create({
+var theirboard = Boards.create({
+	title: "Your Opponent",
 	rows: 20,
-	columns: 20
+	columns: 20,
+	owner: Board.owner.opponent
 });
 
-
-var ui = {};
-
-ui.Modal = new Model({
-	head: "",
-	body: "",
-	width: "",
-	display: Model.enum("block", "none"),
-	show: function(body, head, width) {
-		this.set_body(body);
-		this.set_head(head);
-		this.set_width(width);
-		this.set_display("block");
-		document.body.style.overflowY = "hidden";
-	},
-	hide: function() {
-		this.set_display("none");
-		document.body.style.overflowY = "";
-	}
+var myboard = Boards.create({
+	title: "Player 1",
+	rows: 20,
+	columns: 20,
+	owner: Board.owner.player
 });
 
-ui.modal = new ui.Modal({display: "none"});
-
-// document.querySelectorAll("[data-bindto]:not(script)");  
-
-var parse_bind_prop = function(str) {
-	var parts = str.split(".");
-	return {
-		model: parts[0],
-		prop: parts[1],
-		property: parts[1]
-	};
+var find_game_piece_cell = function(table, piece) {
+	var row = table.rows[ piece.y ];
+	return row ? row.cells[ piece.x ] : null;
 };
 
-/*
-listen.on("keyup", "[data-bindto]", function(ev) {
-	Template.trigger = this;
-	var info = parse_bind_prop(this.dataset.bindto);
-	window[ info.model ].set(info.property, this.value);
-});
+var handle_redraw = function() {
+	var selector = Template("table[data-board_id='{__id}']", this),
+		table = document.querySelector(selector), cells, cell, i , len;
+	
+	if (table) {
+		cells = table.querySelectorAll("td");
 
-listen.click("#ships .ship", function(event) {
-	var ship = Ships.get_by_id(this.dataset.ship_id);
+		// clean up
+		for (i = 0, len = cells.length; i < len; i++) {
+			cells[ i ].className = "";
+		}
 
-	if (ship) {
-		console.log(ship);
-		action.select_ship(ship);
+		// pieces
+		this.pieces.foreach(function(i, piece) {
+			if (cell = find_game_piece_cell(table, piece)) {
+				cell.classList.add("ship-piece");
+			}
+		});
+
+		// shots
+		this.shots.foreach(function(i, shot) {
+			if (cell = find_game_piece_cell(table, shot)) {
+				cell.classList.add("target-" + shot.outcome);
+			}
+		});
+	} else {
+		console.error("table not found for", this);
 	}
-});
+};
 
-listen.on("mouseover", ".board.player td", function(event) {
-	if (action.selected_ship) {
-		console.log("showing %o over %o", action.selected_ship, event.target);
-	}
+window.addEventListener("load", function() {
+	// dummy pieces
+	myboard.pieces.create({ x: 1, y: 0 });
+	myboard.pieces.create({ x: 2, y: 0 });
+	myboard.pieces.create({ x: 3, y: 0 });
+
+	myboard.pieces.create({ x: 7, y: 5 });
+	myboard.pieces.create({ x: 7, y: 6 });
+	myboard.pieces.create({ x: 7, y: 7 });
+
+	myboard.pieces.create({ x: 6, y: 9 });
+	myboard.pieces.create({ x: 7, y: 9 });
+	myboard.pieces.create({ x: 8, y: 9 });
+	myboard.pieces.create({ x: 9, y: 9 });
+
+	myboard.pieces.create({ x: 12, y: 4 });
+	myboard.pieces.create({ x: 12, y: 5 });
+	myboard.pieces.create({ x: 12, y: 6 });
+	myboard.pieces.create({ x: 12, y: 7 });
+	myboard.pieces.create({ x: 12, y: 8 });
+
+	myboard.pieces.create({ x: 17, y: 14 });
+	myboard.pieces.create({ x: 17, y: 15 });
+	myboard.pieces.create({ x: 17, y: 16 });
+	myboard.pieces.create({ x: 17, y: 17 });
+	myboard.pieces.create({ x: 17, y: 18 });
+
+	myboard.shots.create({ x: 3, y: 0, outcome: Shot.outcome.hit });
+	myboard.shots.create({ x: 5, y: 9, outcome: Shot.outcome.miss });
+	myboard.shots.create({ x: 6, y: 9, outcome: Shot.outcome.hit });
+	myboard.shots.create({ x: 7, y: 9, outcome: Shot.outcome.hit });
+	myboard.shots.create({ x: 8, y: 9, outcome: Shot.outcome.hit });
+	myboard.shots.create({ x: 9, y: 9, outcome: Shot.outcome.hit });
+	myboard.shots.create({ x: 4, y: 0, outcome: Shot.outcome.miss });
+	myboard.shots.create({ x: 4, y: 10, outcome: Shot.outcome.miss });
+	myboard.shots.create({ x: 8, y: 12, outcome: Shot.outcome.miss });
+	myboard.shots.create({ x: 3, y: 10, outcome: Shot.outcome.miss });
+	myboard.shots.create({ x: 19, y: 2, outcome: Shot.outcome.miss });
+	myboard.shots.create({ x: 5, y: 12, outcome: Shot.outcome.miss });
+	myboard.shots.create({ x: 13, y: 9, outcome: Shot.outcome.miss });
+
+	theirboard.shots.create({ x: 3, y: 10, outcome: Shot.outcome.hit });
+	theirboard.shots.create({ x: 5, y: 19, outcome: Shot.outcome.miss });
+	theirboard.shots.create({ x: 5, y: 13, outcome: Shot.outcome.miss });
+	theirboard.shots.create({ x: 5, y: 14, outcome: Shot.outcome.hit });
+	theirboard.shots.create({ x: 14, y: 14, outcome: Shot.outcome.hit });
+	theirboard.shots.create({ x: 15, y: 14, outcome: Shot.outcome.miss });
+	theirboard.shots.create({ x: 6, y: 13, outcome: Shot.outcome.miss });
+	theirboard.shots.create({ x: 16, y: 13, outcome: Shot.outcome.miss });
+	theirboard.shots.create({ x: 14, y: 3, outcome: Shot.outcome.hit });
+	theirboard.shots.create({ x: 7, y: 5, outcome: Shot.outcome.miss });
+	theirboard.shots.create({ x: 11, y: 7, outcome: Shot.outcome.miss });
+
+	Board.observe("after", "publish_redraw_request", handle_redraw);
+	Boards.foreach(function(i, board) {
+		board.publish_redraw_request();
+	});
+
+	// popup close window
+	listen.click(".modal_close", function() {
+		Modal.popup.hide();
+	});
 });
-*/

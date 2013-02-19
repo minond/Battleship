@@ -1,7 +1,10 @@
-<table class="board player">
 <!--placeholder
 {list
-	{rows* <tr>{columns* <td></td>}</tr>}
+<div class="board_holder">
+	<div class="board_title">{title}</div>
+	<table class="board {owner}" data-board_id={__id}>
+		{rows* <tr>{columns* <td></td>}</tr>}
+	</table>
+</div>
 }
 placeholder-->
-</table>

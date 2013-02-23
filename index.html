@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 	<head>
 		<title>Battleship</title>
@@ -7,91 +7,30 @@
 	</head>
 	<body>
 		<div id="viewport">
-			<div id="configuration" style="display: none">
+			<input data-bindto-model="Clipper:name" />
+			<input data-bindto-model="Clipper:name" />
+			<div id="configuration">
 				<div id="ships">
-					<template data-bindto="collection:self:Ships">
-						{list <div class="ship" data-ship_id="{__id}">
-							<img x-placeholder-src="{src}" title="{name}" alt="{name} image" />
-							<span style="font: 11px monospace">{name}</span>
-						</div>}
-					</template>
+					<template data-load="assets/partial/ships.html" data-bindto="collection:self:Ships" />
 				</div>
 			</div>
 			<center>
-				<template data-bindto="collection:self:Boards">
-					<!--placeholder
-					{list
-					<div class="board_holder">
-						<div class="board_title">{title}</div>
-							<table class="board {owner}" data-board_id={__id}>
-									{rows* <tr>{columns* <td></td>}</tr>}
-										</table>
-										</div>
-					}
-					placeholder-->
-				</template>
+				<template data-load="assets/partial/board.html" data-bindto="collection:self:Boards" />
 			</center>
 			<span>
-				<template data-bindto="model:Modal:popup" data-name="modal">
-					<div id="modal" style="display: {display? none};">
-						{content? <div class="modal">
-							<div class="modal_background"></div>
-								<div class="modal_outer">
-									<div class="modal_inner">
-										<div class="modal_content">
-										{head! <div class="modal_header">
-											<span>{head}</span>
-											<span class="modal_close">x</span>
-										</div>}
-										<div class="modal_body" style="height: {height? auto}{height! px}; width: {width? 100}px">{body}</div>
-									</div>
-								</div>
-							</div>
-						</div>}
-					</div>
-				</template>
+				<template data-load="assets/partial/modal.html" data-bindto="model:Modal:popup" data-name="modal" />
 			</span>
 		</div>
-		<template data-name="desc">
-			<div class="h_desc">
-				<ul>
-					<li><b>Ship</b><span> model - represents an available ship piece.</span></li>
-					<ul>
-						<li><code>string name</code> - the ship's name (Clipper, Pirate ship, etc.)</li>
-						<li><code>int length</code></li>
-						<li><code>int width</code></li>
-						<li><code>string src</code> - a URL to the ship's image.</li>
-					</ul>
-					<li><b>Piece</b><span> model - represent a ship on the board.</span></li>
-					<ul>
-						<li><code>Ship ship</code> - a reference to a Ship model (ship piece represents).</li>
-						<li><code>int x</code> - piece's coordinates on the board.</li>
-						<li><code>int y</code> - piece's coordinates on the board.</li>
-						<li><code>enum orientation</code> - piece's coordinates on the board.</li>
-					</ul>
-					<li><b>Shot</b><span> model - represent a move/turn.</span></li>
-					<ul>
-						<li><code>int[] coordinates</code> - piece's coordinates on the board.</li>
-						<li><code>boolean alive()</code> - returns true of piece has not been sunk.</li>
-						<li><code>void attacked_on(int x, int y)</code> - hit a panel.</li>
-						<li><code>boolean falls_within(int x, int y)</code> - returns true if a piece falls within the specified coordinates.</li>
-					</ul>
-					<li><b>Board</b><span> model - a game board.</span></li>
-					<ul>
-						<li><code>string player_name</code></li>
-						<li><code>Piece[] pieces</code> - collection of ship pieces on board.</li>
-						<li><code>boolean valid_location(int x, int y, Ship ship)</code> - return true if we can place a piece on the board at the specified location.</li>
-						<li><code>boolean trigger_attack(int x, int y)</code> - fire an attack at a specific coordinate.</li>
-						<li><code>boolean has_live_pieces()</code> - returns true of board has pieces that haven't been hit.</li>
-						<li><code>boolean has_live_piece_at(int x, int y)</code> - returns true if a piece falls within the specified coordinates (see <code>Piece.falls_within</code>).</li>
-					</ul>
-				</ul>
-			</div>
-		</template>
-
+		<script type="text/javascript" src="/Polypus/src/polypus.js"></script>
+		<script type="text/javascript" src="/Polypus/src/adjutor.js"></script>
 		<script type="text/javascript" src="/Polypus/src/model.js"></script>
-		<script type="text/javascript" src="/Polypus/src/template.js"></script>
 		<script type="text/javascript" src="/Polypus/src/collection.js"></script>
+		<script type="text/javascript" src="/Polypus/src/template.js"></script>
+		<script type="text/javascript" src="/Polypus/src/auto/operators.js"></script>
+		<script type="text/javascript" src="/Polypus/src/auto/templates.js"></script>
+		<script type="text/javascript" src="/Polypus/src/eventuum.js"></script>
+		<script type="text/javascript" src="/Polypus/src/auto/binding.js"></script>
+		<script type="text/javascript" src="/Polypus/src/auto/global.js"></script>
 
 		<script type="text/javascript" src="assets/js/models/Ship.js"></script>
 		<script type="text/javascript" src="assets/js/models/Shot.js"></script>

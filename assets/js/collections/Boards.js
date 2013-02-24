@@ -1,3 +1,3 @@
 "use strict";
 
-var Boards = new Collection(Board);
+var Boards = new Polypus.Collection(Board);

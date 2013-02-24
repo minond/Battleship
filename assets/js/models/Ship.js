@@ -3,7 +3,7 @@
 /**
  * represents a ship "type"
  */
-var Ship = new Model({
+var Ship = new Polypus.Model({
 	/**
 	 * the ships name
 	 * @var string

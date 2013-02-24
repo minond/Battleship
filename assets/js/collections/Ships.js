@@ -1,3 +1,3 @@
 "use strict";
 
-var Ships = new Collection(Ship);
+var Ships = new Polypus.Collection(Ship);

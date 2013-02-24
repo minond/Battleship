@@ -3,7 +3,7 @@
 /**
  * represents an actual ship (piece) in use
  */
-var Piece = new Model({
+var Piece = new Polypus.Model({
 	/**
 	 * a reference to a Ship model. used to get information shared accross all
 	 * shipts of the same type.
@@ -14,7 +14,7 @@ var Piece = new Model({
 	/**
 	 * ship orientation
 	 */
-	orientation: Model.enum("horizontal", "vertical"),
+	orientation: Polypus.Model.enum("horizontal", "vertical"),
 
 	/**
 	 * board coordinates

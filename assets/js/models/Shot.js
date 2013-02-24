@@ -3,12 +3,12 @@
 /**
  * represents a move
  */
-var Shot = new Model({
+var Shot = new Polypus.Model({
 	/**
 	 * shot/move outcome
 	 * @var enum
 	 */
-	outcome: Model.enum("hit", "miss"),
+	outcome: Polypus.Model.enum("hit", "miss"),
 
 	/**
 	 * board coordinates

@@ -6,21 +6,36 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
 	</head>
 	<body>
+		<input data-bindto-model="Settings.name" />
+		<br />
+		<span>
+			<view data-bindto-model="Settings">
+				{name}
+				<button data-click="self.sayhi">{name}</button>
+				<button data-click="self.randname">just random</button>
+				<button data-click="self.randname">just random</button>
+			</view>
+		</span>
+		<!--
+		<span>
+			<view data-bindto="model:self:Clipper">{name}</view>
+		</span>
 		<div id="viewport">
 			<input data-bindto-model="Clipper:name" />
 			<input data-bindto-model="Clipper:name" />
 			<div id="configuration">
 				<div id="ships">
-					<template data-load="assets/partial/ships.html" data-bindto="collection:self:Ships" />
+					<view data-load="assets/partial/ships.html" data-bindto="collection:self:Ships" />
 				</div>
 			</div>
 			<center>
-				<template data-load="assets/partial/board.html" data-bindto="collection:self:Boards" />
+				<view data-load="assets/partial/board.html" data-bindto="collection:self:Boards" />
 			</center>
 			<span>
-				<template data-load="assets/partial/modal.html" data-bindto="model:Modal:popup" data-name="modal" />
+				<view data-load="assets/partial/modal.html" data-bindto="model:Modal:popup" data-name="modal" />
 			</span>
 		</div>
+		-->
 		<script type="text/javascript" src="/Polypus/src/polypus.js"></script>
 		<script type="text/javascript" src="/Polypus/src/adjutor.js"></script>
 		<script type="text/javascript" src="/Polypus/src/model.js"></script>
@@ -30,7 +45,6 @@
 		<script type="text/javascript" src="/Polypus/src/auto/templates.js"></script>
 		<script type="text/javascript" src="/Polypus/src/eventuum.js"></script>
 		<script type="text/javascript" src="/Polypus/src/auto/binding.js"></script>
-		<script type="text/javascript" src="/Polypus/src/auto/global.js"></script>
 
 		<script type="text/javascript" src="assets/js/models/Ship.js"></script>
 		<script type="text/javascript" src="assets/js/models/Shot.js"></script>

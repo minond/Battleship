@@ -1,6 +1,6 @@
 "use strict";
 
-var Modal = new Model({
+var Modal = new Polypus.Model({
 	/**
 	 * header text
 	 * @var string
@@ -29,7 +29,7 @@ var Modal = new Model({
 	 * css display value
 	 * @var enum
 	 */
-	display: Model.enum("block", "none"),
+	display: Polypus.Model.enum("block", "none"),
 
 	/**
 	 * auto hides popup

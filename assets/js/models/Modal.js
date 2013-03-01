@@ -1,6 +1,6 @@
 "use strict";
 
-var Modal = new Polypus.Model({
+var Modal = new Polypus.Model({ singleton: true }, {
 	/**
 	 * header text
 	 * @var string
@@ -63,4 +63,4 @@ var Modal = new Polypus.Model({
 		this.set_display("none");
 		document.body.style.overflowY = "";
 	}
-}, { autoinit: "popup" });
+});

@@ -4,46 +4,84 @@
 		<title>Battleship</title>
 		<link rel="stylesheet" type="text/css" href="assets/css/modal.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+		<link rel="stylesheet" type="text/css" href="/Polypus/styles/std.css" />
+		<style type="text/css">
+		li {
+			font: 12px monospace;
+			margin-bottom: 6px;
+		}
+
+		.done {
+			margin: 5px;
+			font: italic bold 12px monospace;
+		}
+
+		.del {
+			color: red;
+			cursor: pointer;
+			font-weight: bold;
+		}
+
+		.sep {
+			padding: 0px; 3px;
+			font-weight: bold;
+		}
+
+		.edit {
+			color: salmon;
+			cursor: pointer;
+			font-weight: bold;
+		}
+		</style>
 	</head>
 	<body>
-		<input data-bindto-model="Settings.name" />
-		<br />
-		<span>
-			<view data-bindto-model="Settings">
-				{name}
-				<button data-click="self.sayhi">{name}</button>
-				<button data-click="self.randname">just random</button>
-				<button data-click="self.randname">just random</button>
-			</view>
-		</span>
+		<view data-bindto-collection="Todos" data-collection-sort="duedate">
+			<button id="add_todo">Add todo</button>
+			{list!
+			<ol>
+				{list <li data-task-id="{__id}">
+					<span x-bind-delete-task class="del">del</span>
+					<span class="sep">|</span>
+					<span x-bind-edit-task class="edit">edit</span>
+					<span title="{label} is due on {get_duedate}"> - {label}, {get_duedate}</span>
+				</li>}
+			<ol>}
+				{list!! <div class="done">all done</div>}
+		</view>
 		<!--
-		<span>
-			<view data-bindto="model:self:Clipper">{name}</view>
-		</span>
 		<div id="viewport">
-			<input data-bindto-model="Clipper:name" />
-			<input data-bindto-model="Clipper:name" />
+			<input data-bindto-model="Clipper.name" />
+			<input data-bindto-model="Clipper.name" />
 			<div id="configuration">
 				<div id="ships">
-					<view data-load="assets/partial/ships.html" data-bindto="collection:self:Ships" />
+					<view data-load="assets/partial/ships.html" data-bindto-collection="Ships" />
 				</div>
 			</div>
 			<center>
-				<view data-load="assets/partial/board.html" data-bindto="collection:self:Boards" />
+				<view data-load="assets/partial/board.html" data-bindto-collection="Boards" />
 			</center>
 			<span>
-				<view data-load="assets/partial/modal.html" data-bindto="model:Modal:popup" data-name="modal" />
+				<view data-load="assets/partial/modal.html" data-bindto-model="Modal" data-name="modal" />
 			</span>
 		</div>
 		-->
+			<span>
+				<view data-load="assets/partial/modal.html" data-bindto-model="Modal" data-name="modal" />
+			</span>
+
 		<script type="text/javascript" src="/Polypus/src/polypus.js"></script>
 		<script type="text/javascript" src="/Polypus/src/adjutor.js"></script>
+		<script type="text/javascript" src="/Polypus/src/eventuum.js"></script>
+		<script type="text/javascript" src="/Polypus/src/controller.js"></script>
 		<script type="text/javascript" src="/Polypus/src/model.js"></script>
 		<script type="text/javascript" src="/Polypus/src/collection.js"></script>
+		<script type="text/javascript" src="/Polypus/src/service.js"></script>
+		<script type="text/javascript" src="/Polypus/src/services/tabular.js"></script>
+		<script type="text/javascript" src="/Polypus/src/services/persist.js"></script>
+		<script type="text/javascript" src="/Polypus/src/services/sync.js"></script>
 		<script type="text/javascript" src="/Polypus/src/template.js"></script>
 		<script type="text/javascript" src="/Polypus/src/auto/operators.js"></script>
 		<script type="text/javascript" src="/Polypus/src/auto/templates.js"></script>
-		<script type="text/javascript" src="/Polypus/src/eventuum.js"></script>
 		<script type="text/javascript" src="/Polypus/src/auto/binding.js"></script>
 
 		<script type="text/javascript" src="assets/js/models/Ship.js"></script>

@@ -62,57 +62,74 @@ var Todos = new Polypus.Collection(new Polypus.Model({
 		}
 	}
 }));
-var TaskManager = new Polypus.Controller({
-	__init__: function(s, $Tabular, $Sync) {
-		var that = this;
-		Polypus.adjutor.times(3, function() {
-			that.add_random_todo();
-		});
+var TaskManager = new Polypus.Controller(
+	{
+		__init__: function(s, $Tabular, $Sync) {
+			$Tabular.on("add_todo", Todos.create.bind(Todos));
+			$Tabular.on("remove_todo", this.remove_todo.bind(this));
+			Todos.observe("add", $Sync.synchronize.bind($Sync));
+			Todos.observe("remove", function(instance) {
+				$Tabular.trigger("remove_todo", [instance.__id]);
+			});
+			$Tabular.on("say_hi", function() {
+				console.log("someone has logged in!");
+			});
+		},
+		__load__: function() {
+			for (var i = 0; i < 3; i++)
+				this.add_random_todo();
+		},
+		say_hi: function($Tabular) {
+			$Tabular.trigger("say_hi");
+		},
+		add_random_todo: function(s, $Tabular, $Sync) {
+			var todo = Todos.create({
+				label: Math.random().toString().substr(3, 10),
+				duedate: +("1" + Math.random().toString().substr(3, 12))
+			});
 
-		$Tabular.on("add_todo", function(todo) {
-			todo = Todos.create(todo);
 			$Sync.synchronize(todo);
-		});
+			$Tabular.trigger("add_todo", [ todo.raw(true) ]);
+		},
+		remove_todo: function(id) {
+			 var todo = Todos.get_by_id(id);
+			 if (todo) todo.remove();
+		},
+		edit_todo: function(id) {
+			var todo, input = document.getElementById("todo_editor");
+			if (input) {
+				todo = Todos.get_by_id(id);
 
-		$Tabular.on("remove_todo", function(id) {
-			var todo = Todos.get_by_id(id);
-			if (todo) todo.remove();
-		});
+				if (todo) {
+					input.style.display = "";
+					input.focus();
+					Polypus.adjutor.dataset(input, "model", todo);
+					input.value = todo.get_label();
+				}
+			}
+		}
 	},
-	add_random_todo: function(s, $Tabular, $Sync) {
-		var todo = ({
-			label: Math.random().toString().substr(3, 10),
-			duedate: +("1" + Math.random().toString().substr(3, 12))
-		});
-
-		todo = Todos.create(todo);
-		$Sync.synchronize(todo);
-		$Tabular.trigger("add_todo", [ todo.raw(true) ]);
-	},
-	remove_todo: function(id, $Tabular) {
-		var todo = Todos.get_by_id(id);
-		if (todo) {
-			todo.remove();
-			$Tabular.trigger("remove_todo", [id]);
+	{
+		"click button[id='add_todo']": function(click, btn) {
+			this.add_random_todo();
+		},
+		"click span[x-bind-delete-task]": function(click, span) {
+			this.remove_todo(span.parentNode.dataset.taskId);
+		},
+		"click span[x-bind-edit-task]": function(click, span) {
+			// this.edit_todo(span.parentNode.dataset.taskId);
+		},
+		"keydown #todo_editor": function(keydown, input) {
+			if (keydown.keyCode === 13) {
+				Todos.create({
+					label: input.value,
+					duedate: Date.now()
+				});
+				input.value = "";
+			}
+		},
+		"load window": function() {
+			this.say_hi();
 		}
 	}
-}, {
-	"click button[id='add_todo']": function(click, btn) {
-		this.add_random_todo();
-	},
-	"click span[x-bind-delete-task]": function(click, span) {
-		this.remove_todo(span.parentNode.dataset.taskId);
-	}
-});
-
-
-
-
-
-
-
-
-
-
-
-
+);

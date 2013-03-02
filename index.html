@@ -35,8 +35,10 @@
 		</style>
 	</head>
 	<body>
-		<view data-bindto-collection="Todos" data-collection-sort="duedate">
 			<button id="add_todo">Add todo</button>
+			<input id="todo_editor" data-bindto-property="label" />
+		<span>
+		<view data-bindto-collection="Todos" data-collection-sort="duedate">
 			{list!
 			<ol>
 				{list <li data-task-id="{__id}">
@@ -45,9 +47,11 @@
 					<span x-bind-edit-task class="edit">edit</span>
 					<span title="{label} is due on {get_duedate}"> - {label}, {get_duedate}</span>
 				</li>}
-			<ol>}
+			</ol>}
 				{list!! <div class="done">all done</div>}
 		</view>
+		</span>
+			<!-- <input data-bindto-model="TodoOne.label" /> -->
 		<!--
 		<div id="viewport">
 			<input data-bindto-model="Clipper.name" />

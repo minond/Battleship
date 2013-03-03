@@ -97,8 +97,29 @@ template {
  * ships selector
  */
 #ships {
-	/* display: none; */
 	height: 140px;
+}
+
+#ships .ship_holder {
+	margin: 10px auto;
+}
+
+#ships .ship_holder td {
+	vertical-align: top;
+}
+
+#ships .ship_image {
+	height: 130px;
+	position: relative;
+}
+
+#ships .ship_image img {
+	width: 120px;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	opacity: .5;
+	z-index: 8;
 }
 
 #ships .ship {
@@ -107,11 +128,62 @@ template {
 	text-align: center;
 	cursor: pointer;
 	vertical-align: bottom;
-	margin: auto 5px;
+	background-color: white;
 }
 
-#ships .ship img {
-	width: 120px;
+#ships .ship:hover .ship_information {
+	box-shadow: 1px 1px 13px 2px rgb(178, 194, 177);
+}
+
+#ships .ship .ship_information {
+	display: none;
+	position: relative;
+	top: -147px;
+	left: -70px;
+	padding-top: 130px;
+	width: 260px;
+	background-color: white;
+	z-index: 9;
+}
+
+#ships .ship .ship_information .holder {
+	padding: 10px;
+}
+
+#ships .ship:hover .ship_information {
+	display: block;
+}
+
+#ships .ship:hover .ship_image img {
+	opacity: 1;
+	z-index: 10;
+}
+
+.ship_information {
+	font: 12px monospace;
+	margin-top: 16px;
+}
+
+.ship_information table {
+	margin: 4px 0px 8px 0px;
+	width: 100%;
+}
+
+.ship_information table td:first-child {
+	text-align: right;
+	font-weight: bold;
+	width: 50%;
+}
+
+.ship_information table td:nth-child(2) {
+	text-align: left;
+	padding-left: 5px;
+}
+
+.ship_information .desc {
+	font: italic 11px monospace;
+	text-align: justify;
+	color: darkgrey;
 }
 
 /**

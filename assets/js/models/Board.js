@@ -3,7 +3,7 @@
 /**
  * represents a board
  */
-var Board = new Polypus.Model({
+battleship.Board = new Polypus.Model({
 	/**
 	 * ui title
 	 * @var string
@@ -40,8 +40,8 @@ var Board = new Polypus.Model({
 	 * initializes pieces property
 	 */
 	__init__: function() {
-		this.pieces = new Polypus.Collection(Piece);
-		this.shots = new Polypus.Collection(Shot);
+		this.pieces = new Polypus.Collection(battleship.Piece);
+		this.shots = new Polypus.Collection(battleship.Shot);
 		this.pieces.observe("add",
 			this.constructor.__specials__.__redraw__.bind(this));
 		this.shots.observe("add",

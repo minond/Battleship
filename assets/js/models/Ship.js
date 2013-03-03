@@ -3,12 +3,18 @@
 /**
  * represents a ship "type"
  */
-var Ship = new Polypus.Model({
+battleship.Ship = new Polypus.Model({
 	/**
 	 * the ships name
 	 * @var string
 	 */
 	name: "",
+
+	/**
+	 * information about ship
+	 * @var string
+	 */
+	description: "",
 
 	/**
 	 * ship's length

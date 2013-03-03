@@ -3,13 +3,13 @@
 /**
  * represents an actual ship (piece) in use
  */
-var Piece = new Polypus.Model({
+battleship.Piece = new Polypus.Model({
 	/**
 	 * a reference to a Ship model. used to get information shared accross all
 	 * shipts of the same type.
 	 * @var Ship
 	 */
-	ship: Ship,
+	ship: battleship.Ship,
 
 	/**
 	 * ship orientation

@@ -1,3 +1,3 @@
 "use strict";
 
-var Boards = new Polypus.Collection(Board);
+battleship.Boards = new Polypus.Collection(battleship.Board);

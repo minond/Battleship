@@ -10,18 +10,15 @@
 		<div id="viewport">
 			<div id="configuration">
 				<div id="ships">
-					<view data-load="assets/partial/ships.html" data-bindto-collection="Ships" />
+					<view data-load="assets/partial/ships.html" data-bindto-collection="battleship.Ships" />
 				</div>
 			</div>
 			<center>
-				<view data-load="assets/partial/board.html" data-bindto-collection="Boards" />
+				<view data-load="assets/partial/board.html" data-bindto-collection="battleship.Boards" />
 			</center>
-			<span>
-				<view data-load="assets/partial/modal.html" data-bindto-model="Modal" data-name="modal" />
-			</span>
 		</div>
 		<span>
-			<view data-load="assets/partial/modal.html" data-bindto-model="Modal" data-name="modal" />
+			<view data-load="assets/partial/modal.html" data-bindto-model="battleship.Modal" data-name="modal" />
 		</span>
 
 		<script type="text/javascript" src="/Polypus/src/polypus.js"></script>
@@ -39,6 +36,7 @@
 		<script type="text/javascript" src="/Polypus/src/auto/templates.js"></script>
 		<script type="text/javascript" src="/Polypus/src/auto/binding.js"></script>
 
+		<script type="text/javascript" src="assets/js/app.js"></script>
 		<script type="text/javascript" src="assets/js/models/Ship.js"></script>
 		<script type="text/javascript" src="assets/js/models/Shot.js"></script>
 		<script type="text/javascript" src="assets/js/models/Piece.js"></script>
@@ -46,14 +44,7 @@
 		<script type="text/javascript" src="assets/js/models/Modal.js"></script>
 		<script type="text/javascript" src="assets/js/collections/Ships.js"></script>
 		<script type="text/javascript" src="assets/js/collections/Boards.js"></script>
-		<script type="text/javascript" src="assets/js/models/ships/Clipper.js"></script>
-		<script type="text/javascript" src="assets/js/models/ships/Friate.js"></script>
-		<script type="text/javascript" src="assets/js/models/ships/Nina.js"></script>
-		<script type="text/javascript" src="assets/js/models/ships/Pinta.js"></script>
-		<script type="text/javascript" src="assets/js/models/ships/PirateShip.js"></script>
-		<script type="text/javascript" src="assets/js/models/ships/SantaMaria.js"></script>
-
-		<script type="text/javascript" src="assets/js/helpers.js"></script>
+		<script type="text/javascript" src="assets/js/models/ships.js"></script>
 		<script type="text/javascript" src="assets/js/game.js"></script>
 	</body>
 </html>

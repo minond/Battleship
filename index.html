@@ -7,19 +7,75 @@
 		<link rel="stylesheet" type="text/css" href="/Polypus/styles/std.css" />
 	</head>
 	<body>
-		<div id="viewport">
-			<div id="configuration">
-				<div id="ships">
-					<view data-load="assets/partial/ships.html" data-bindto-collection="battleship.Ships" />
-				</div>
+		<view data-elem="div" id="ships" data-bindto-collection="battleship.Ships">
+			<table class="ship_holder">
+				<!--placeholder
+				<tr>
+					{list <td>
+						<div class="ship" data-ship-id="{__id}">
+							<div class="ship_image">
+								<img src="{src}" alt="{name} image" />
+							</div>
+							<div class="ship_information">
+								<div class="holder">
+									<div>{name}</div>
+									<table>
+										<tr>
+											<td>Width:</td>
+											<td>{width}</td>
+										</tr>
+										<tr>
+											<td>Length:</td>
+											<td>{length}</td>
+										</tr>
+									</table>
+									<div class="desc">{description}</div>
+								</div>
+							</div>
+						</div>
+					</td>}
+				</tr>
+				placeholder-->
+			</table>
+		</view>
+		<view data-elem="center" data-bindto-collection="battleship.Boards">
+			{list
+			<div class="board_holder">
+				<div class="board_title">{title}</div>
+				<table class="board {owner}" data-board_id={__id}>
+					<!--placeholder
+					{rows* <tr>{columns* <td></td>}</tr>}
+					placeholder-->
+				</table>
 			</div>
-			<center>
-				<view data-load="assets/partial/board.html" data-bindto-collection="battleship.Boards" />
-			</center>
-		</div>
-		<span>
-			<view data-load="assets/partial/modal.html" data-bindto-model="battleship.Modal" data-name="modal" />
-		</span>
+			}
+		</view>
+		<view data-bindto-model="battleship.Modal" data-name="modal">
+			<div id="modal" style="display: {display? none};">
+				{content? <div class="modal">
+					<div class="modal_background"></div>
+					<div class="modal_outer">
+						<div class="modal_inner">
+							<div class="modal_content">
+								{head! <div class="modal_header">
+									<span>{head}</span>
+									<span class="modal_close">x</span>
+								</div>}
+								<div class="modal_body" style="
+									height: {height? auto}{height! px};
+									width: {width? auto}{width! px}"
+								>{body}</div>
+							</div>
+						</div>
+					</div>
+				</div>}
+			</div>
+		</view>
+		<view data-name="player_name">
+			<span>What's your name:</span>
+			<input data-bindto-property="title" id="player_name" value="{title}" />
+			<input type="button" value="Start" class="close_modal" />
+		</view>
 
 		<script type="text/javascript" src="/Polypus/src/polypus.js"></script>
 		<script type="text/javascript" src="/Polypus/src/adjutor.js"></script>

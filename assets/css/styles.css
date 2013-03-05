@@ -1,3 +1,37 @@
+#coor_information {
+	display: block;
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	padding: 6px 8px;
+	font: bold 15px monospace;
+	cursor: default;
+	z-index: 99999999999;
+	color: blueviolet;
+	background-color: white;
+}
+
+#clipper_change_name {
+	right: 10px;
+	bottom: 10px;
+	position: fixed;
+	font: 12px Arial;
+	background-color: salmon;
+	padding: 2px;
+	border: 1px solid red;
+	cursor: default;
+}
+
+.h_desc {
+	font: 13px Arial;
+	cursor: default;
+}
+
+.h_desc .info {
+	color: blueviolet;
+	font-weight: bold;
+}
+
 /**
  * board styles
  */

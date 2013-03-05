@@ -7,17 +7,165 @@
 		<link rel="stylesheet" type="text/css" href="/Polypus/styles/std.css" />
 	</head>
 	<body>
+		<!-- Use HTML input elements and events in your game -->
+		<div id="clipper_change_name">
+			<span>Change the name of the first ship (the clipper):</span>
+			<input data-bindto-model="Clipper.name" />
+			<select data-bindto-model="Clipper.name">
+				<option value=""></option>
+				<option>Agrajag</option>
+				<option>Mrs Alice Beeblebrox</option>
+				<option>The Allitnils</option>
+				<option>Almighty Bob</option>
+				<option>Anjie</option>
+				<option>Arcturan Megafreighter crew</option>
+				<option>Aseed</option>
+				<option>Barmen</option>
+				<option>BBC department head</option>
+				<option>Blart Versenwald III</option>
+				<option>Bodyguard</option>
+				<option>Caveman</option>
+				<option>Colin</option>
+				<option>Constant Mown</option>
+				<option>Clipper</option>
+				<option>Dr. Dan Streetmentioner</option>
+				<option>Deep Thought</option>
+				<option>Dionah Carlinton Housney</option>
+				<option>Disaster Area's chief research accountant</option>
+				<option>Dish of the Day</option>
+				<option>East River Creature</option>
+				<option>Eccentrica Gallumbits</option>
+				<option>Eddie</option>
+				<option>Effrafax of Wug</option>
+				<option>Elders of Krikkit</option>
+				<option>Elvis Presley</option>
+				<option>Emily Saunders</option>
+				<option>Emperor of the Galaxy</option>
+				<option>Mrs Enid Kapelsen</option>
+				<option>Eric Bartlett</option>
+				<option>Fenchurch</option>
+				<option>Frankie and Benjy Mouse</option>
+				<option>Frap Gadz</option>
+				<option>Frogstar Prisoner Relations Officer</option>
+				<option>Gag Halfrunt</option>
+				<option>Gail Andrews</option>
+				<option>Gargravarr</option>
+				<option>Garkbit</option>
+				<option>Genghis Temüjin Khan</option>
+				<option>God</option>
+				<option>Gogrilla Mincefriend</option>
+				<option>Golgafrinchans</option>
+				<option>Agda and Mella</option>
+				<option>Captain</option>
+				<option>Great Circling Poets of Arium</option>
+				<option>Hairdresser</option>
+				<option>Management consultant</option>
+				<option>Marketing girl</option>
+				<option>Number One</option>
+				<option>Number Two</option>
+				<option>Telephone Sanitizer</option>
+				<option>Googleplex Star Thinker</option>
+				<option>Great Green Arkleseizure</option>
+				<option>Grunthos the Flatulent</option>
+				<option>Guide Mark II</option>
+				<option>Hactar</option>
+				<option>Haggunenon Underfleet Commander</option>
+				<option>Heimdall</option>
+				<option>Hig Hurtenflurst</option>
+				<option>Hillman Hunter</option>
+				<option>Hotblack Desiato</option>
+				<option>Humma Kavula</option>
+				<option>Hurling Frootmig</option>
+				<option>Ix</option>
+				<option>Judiciary Pag</option>
+				<option>Karl Mueller</option>
+				<option>Know-Nothing Bozo the Non-Wonder Dog</option>
+				<option>Krikkiters</option>
+				<option>Kwaltz</option>
+				<option>Lady Cynthia Fitzmelton</option>
+				<option>The Lajestic Vantrashell of Lob</option>
+				<option>Lallafa</option>
+				<option>Lazlar Lyricon</option>
+				<option>Lig Lury, Jr</option>
+				<option>Lintilla</option>
+				<option>Loonquawl and Phouchg</option>
+				<option>The Lord</option>
+				<option>Lord High Sanvalvwag of Hollop</option>
+				<option>Lunkwill and Fook</option>
+				<option>Magician</option>
+				<option>Majikthise and Vroomfondel</option>
+				<option>Max Quordlepleen</option>
+				<option>Mo Minetti</option>
+				<option>Murray Bost Henson</option>
+				<option>Old Man on the Poles</option>
+				<option>Old Thrashbarg</option>
+				<option>Old Woman in the Cave</option>
+				<option>Oolon Colluphid</option>
+				<option>Paul Neil Milne Johnstone of Redbridge, Essex</option>
+				<option>Phouchg and Loonquawl</option>
+				<option>Poodoo</option>
+				<option>Prak</option>
+				<option>Pralite monks</option>
+				<option>President Hudson</option>
+				<option>Princess Hooli</option>
+				<option>Mr Prosser</option>
+				<option>Prostetnic Vogon Jeltz</option>
+				<option>Questular Rontok</option>
+				<option>Random Dent</option>
+				<option>Receptionists</option>
+				<option>Reg Nullify</option>
+				<option>Rob McKenna</option>
+				<option>Roosta</option>
+				<option>The Ruler of the Universe</option>
+				<option>Russell</option>
+				<option>Safety and Civil Reassurance Administration Officials</option>
+				<option>Sheila Steafel</option>
+				<option>Shooty and Bang Bang</option>
+				<option>Six Men</option>
+				<option>Slartibartfast</option>
+				<option>Stavro Mueller</option>
+				<option>Strinder the Tool Maker</option>
+				<option>Sulijoo</option>
+				<option>Thor</option>
+				<option>Tribesmen of the Cold Hillsides</option>
+				<option>Trin Tragula</option>
+				<option>Varntvar The Priest</option>
+				<option>Veet Voojagig</option>
+				<option>Vroomfondel and Majikthise</option>
+				<option>War Command Krikkiters</option>
+				<option>Whale</option>
+				<option>Will Smithers</option>
+				<option>The Wise Old Bird</option>
+				<option>Wonko the Sane</option>
+				<option>Wowbagger, the Infinitely Prolonged</option>
+				<option>Yooden Vranx</option>
+				<option>Zaphod Beeblebrox the Fourth</option>
+				<option>Zarniwoop [Vann Harl]</option>
+				<option>Zarquon</option>
+				<option>Zem</option>
+			</select>
+		</div>
+		<!-- Displays a message in the document (not an alert) that includes
+		the table cell coordinates -->
+		<view id="coor_information" data-bindto-model="coors">
+			<div>x: {x}</div>
+			<div>y: {y}</div>
+		</view>
+		
 		<view data-elem="div" id="ships" data-bindto-collection="battleship.Ships">
 			<table class="ship_holder">
 				<!--placeholder
 				<tr>
 					{list <td>
-						<div class="ship" data-ship-id="{__id}">
+						<div class="ship">
 							<div class="ship_image">
 								<img src="{src}" alt="{name} image" />
 							</div>
 							<div class="ship_information">
 								<div class="holder">
+									<button data-id="{__id}">Select {name}</button>
+									<br />
+									<br />
 									<div>{name}</div>
 									<table>
 										<tr>
@@ -104,3 +252,10 @@
 		<script type="text/javascript" src="assets/js/game.js"></script>
 	</body>
 </html>
+
+
+
+
+
+
+

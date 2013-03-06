@@ -1,7 +1,7 @@
 "use strict";
 
 // Clipper
-battleship.Ships.create({
+Battleship.Ships.create({
 	name: "Clipper",
 	src: "assets/img/clipper.jpg",
 	length: 5,
@@ -10,7 +10,7 @@ battleship.Ships.create({
 });
 
 // Frigate
-battleship.Ships.create({
+Battleship.Ships.create({
 	name: "Dutch Frigate",
 	src: "assets/img/dutch_frigate.jpg",
 	length: 4,
@@ -19,7 +19,7 @@ battleship.Ships.create({
 });
 
 // Pirate Ship
-battleship.Ships.create({
+Battleship.Ships.create({
 	name: "Pirate Ship",
 	src: "assets/img/pirate_ship.gif",
 	length: 2,
@@ -28,7 +28,7 @@ battleship.Ships.create({
 });
 
 // The Nina
-battleship.Ships.create({
+Battleship.Ships.create({
 	name: "The Nina",
 	src: "assets/img/the_nina.jpg",
 	length: 3,
@@ -37,7 +37,7 @@ battleship.Ships.create({
 });
 
 // The Pinta
-battleship.Ships.create({
+Battleship.Ships.create({
 	name: "The Pinta",
 	src: "assets/img/the_pinta.jpg",
 	length: 3,
@@ -46,7 +46,7 @@ battleship.Ships.create({
 });
 
 // The Santa Maria
-battleship.Ships.create({
+Battleship.Ships.create({
 	name: "The Santa Maria",
 	src: "assets/img/the_santa_maria.jpg",
 	length: 3,

@@ -3,7 +3,7 @@
 /**
  * represents a move
  */
-battleship.Shot = new Polypus.Model({
+Battleship.Shot = new Polypus.Model({
 	/**
 	 * shot/move outcome
 	 * @var enum

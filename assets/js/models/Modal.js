@@ -1,6 +1,6 @@
 "use strict";
 
-battleship.Modal = new Polypus.Model({ singleton: true }, {
+var Modal = new Polypus.Model({ singleton: true }, {
 	/**
 	 * header text
 	 * @var string

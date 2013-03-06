@@ -1,3 +1,3 @@
 "use strict";
 
-battleship.Boards = new Polypus.Collection(battleship.Board);
+Battleship.Boards = new Polypus.Collection(Battleship.Board);

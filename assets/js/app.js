@@ -3,4 +3,4 @@
 /**
  * everything should be added under this namespace
  */
-var battleship = new Polypus.Namespace("battleship");
+var Battleship = new Polypus.Namespace("Battleship");

@@ -1,4 +1,4 @@
 "use strict";
 
 // var Ships = new Polypus.Collection(Ship);
-battleship.Ships = new Polypus.Collection(battleship.Ship);
+Battleship.Ships = new Polypus.Collection(Battleship.Ship);

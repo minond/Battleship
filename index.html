@@ -7,11 +7,20 @@
 		<link rel="stylesheet" type="text/css" href="/Polypus/styles/std.css" />
 	</head>
 	<body>
-		<view data-elem="div" id="ships" data-bindto-collection="Battleship.Ships">
+		<!--
+		<div data-bindto-collection="Tweets" data-collection-sort="datetime">
+			<ul>
+			{all
+				<li><b>{author}</b> says {message}</li>
+			}
+			</ul>
+		</div>
+		-->
+		<div id="ships" data-bindto-collection="Battleship.Ships" data-tmpl-name="ships">
 			<table class="ship_holder">
 				<!--placeholder
 				<tr>
-					{list <td>
+					{all <td>
 						<div class="ship" data-id="{__id}">
 							<div class="ship_image">
 								<img src="{src}" alt="{name} image" />
@@ -37,9 +46,9 @@
 				</tr>
 				placeholder-->
 			</table>
-		</view>
-		<view data-elem="center" data-bindto-collection="Battleship.Boards">
-			{list <div class="board_holder">
+		</div>
+		<center data-bindto-collection="Battleship.Game.boards">
+			{all <div class="board_holder">
 				<div class="board_title">{title}</div>
 				<table class="board {owner}" data-board_id={__id}>
 					<!--placeholder
@@ -47,8 +56,8 @@
 					placeholder-->
 				</table>
 			</div>}
-		</view>
-		<view data-bindto-model="Modal" data-name="modal">
+		</center>
+		<span data-bindto-model="Modal" data-tmpl-name="modal">
 			<div id="modal" style="display: {display? none};">
 				{content? <div class="modal">
 					<div class="modal_background"></div>
@@ -68,12 +77,12 @@
 					</div>
 				</div>}
 			</div>
-		</view>
-		<view data-name="player_name">
+		</span>
+		<span data-tmpl-name="player_name">
 			<span>What's your name:</span>
 			<input data-bindto-property="title" id="player_name" value="{title}" />
 			<input type="button" value="Start" class="close_modal" />
-		</view>
+		</span>
 
 		<script type="text/javascript" src="/Polypus/src/polypus.js"></script>
 		<script type="text/javascript" src="/Polypus/src/adjutor.js"></script>
@@ -97,7 +106,6 @@
 		<script type="text/javascript" src="assets/js/models/Board.js"></script>
 		<script type="text/javascript" src="assets/js/models/Modal.js"></script>
 		<script type="text/javascript" src="assets/js/collections/Ships.js"></script>
-		<script type="text/javascript" src="assets/js/collections/Boards.js"></script>
 		<script type="text/javascript" src="assets/js/models/ships.js"></script>
 		<script type="text/javascript" src="assets/js/game.js"></script>
 	</body>

@@ -18,22 +18,3 @@ Battleship.Game.boards.mine = Battleship.Game.boards.create({
 	columns: 20,
 	owner: Battleship.Board.owner.player
 });
-
-
-
-
-var Persist = Polypus.Service.api.get_service_from_cache("Persist");
-var Sync = Polypus.Service.api.get_service_from_cache("Sync");
-var Tabular = Polypus.Service.api.get_service_from_cache("Tabular");
-
-var Tweet = new Polypus.Model({ message: "", author: "", datetime: {
-	$set: function(date) {
-		return new Date(date ? date : Date.now());
-	}
-} });
-var Tweets = new Polypus.Collection(Tweet);
-
-Persist.collection("Tweets", Tweets);
-
-
-// Tweets.create({ author: "test", message: "hi" })

@@ -6,6 +6,38 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
 	</head>
 	<body>
+		<div id="ships" data-bindto-collection="Battleship.Ships" data-tmpl-name="ships">
+			<table class="ship_holder">
+				<!--placeholder
+				<tr>
+					{all <td>
+						<div class="ship" data-id="{__id}">
+							<div class="ship_image">
+								<img src="{src}" alt="{name} image" />
+							</div>
+							<div class="ship_information">
+								<div class="holder">
+									<div>{name}</div>
+									<table>
+										<tr>
+											<td>Width:</td>
+											<td>{width}</td>
+										</tr>
+										<tr>
+											<td>Length:</td>
+											<td>{length}</td>
+										</tr>
+									</table>
+									<div class="desc">{description}</div>
+								</div>
+							</div>
+						</div>
+					</td>}
+				</tr>
+				placeholder-->
+			</table>
+		</div>
+
 		<span data-bindto-model="Modal" data-tmpl-name="modal">
 			<div id="modal" style="display: {display? none};">
 				{content? <div class="modal">
@@ -32,11 +64,21 @@
 				</div>}
 			</div>
 		</span>
-		<span data-tmpl-name="player_login">
-			<input type="text" id="username" placeholder="Username" />
-			<input type="password" id="password" placeholder="Password" />
-			<input type="button" value="Login" id="login_btn" />
-			<input type="button" value="Reset Storage" id="reset_btn" />
+		<span data-tmpl-name="login_information">
+			<table>
+				<tr>
+					<td>Username:</td>
+					<td>
+						<b>{username}</b>
+					</td>
+				</tr>
+				<tr>
+					<td>Timestamp:</td>
+					<td>
+						<b>{timestamp}</b>
+					</td>
+				</tr>
+			</table>
 		</span>
 
 		<script type="text/javascript" src="assets/js/Polypus/src/polypus.js"></script>
@@ -54,7 +96,13 @@
 		<script type="text/javascript" src="assets/js/Polypus/src/auto/binding.js"></script>
 
 		<script type="text/javascript" src="assets/js/app.js"></script>
+		<script type="text/javascript" src="assets/js/models/Ship.js"></script>
+		<script type="text/javascript" src="assets/js/models/Shot.js"></script>
+		<script type="text/javascript" src="assets/js/models/Piece.js"></script>
+		<script type="text/javascript" src="assets/js/models/Board.js"></script>
 		<script type="text/javascript" src="assets/js/models/Modal.js"></script>
+		<script type="text/javascript" src="assets/js/collections/Ships.js"></script>
+		<script type="text/javascript" src="assets/js/models/ships.js"></script>
 		<script type="text/javascript" src="assets/js/game.js"></script>
 	</body>
 </html>

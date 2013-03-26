@@ -14,6 +14,12 @@ var Modal = new Polypus.Model({ singleton: true }, {
 	body: "",
 
 	/**
+	 * placed below the body
+	 * @var string
+	 */
+	message: "",
+
+	/**
 	 * popup width
 	 * @var int
 	 */

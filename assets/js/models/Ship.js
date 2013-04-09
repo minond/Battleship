@@ -32,5 +32,11 @@ Battleship.Ship = new Polypus.Model({
 	 * image source
 	 * @var string
 	 */
-	src: ""
+	src: "",
+
+	/**
+	 * ship is available to player flag
+	 * @var boolean
+	 */
+	available: true
 });

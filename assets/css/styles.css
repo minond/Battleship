@@ -217,3 +217,24 @@
 	margin: 20px auto;
 	cursor: default;
 }
+
+/**
+ * highscores
+ */
+.scores {
+	padding-left: 50px;
+}
+
+.scores .score {
+	font: bold 22px monospace;
+	color: blue;
+	display: inline-block;
+	margin-left: 10px;
+	margin-right: 5px;
+	width: 50px;
+}
+
+.scores .nickname {
+	font: normal 22px monospace;
+	color: rgb(109, 109, 109);
+}

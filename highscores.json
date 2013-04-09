@@ -1,0 +1,28 @@
+{
+	"users": [
+		{
+			"nickname": "Arthur Dent",
+			"score": 12
+		},
+		{
+			"nickname": "Zaphod Beeblebrox",
+			"score": 33
+		},
+		{
+			"nickname": "Trillian",
+			"score": 65
+		},
+		{
+			"nickname": "Slartibartfast",
+			"score": 214
+		},
+		{
+			"nickname": "Marvin",
+			"score": 1
+		},
+		{
+			"nickname": "Ford Prefect",
+			"score": 32
+		}
+	]
+}

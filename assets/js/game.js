@@ -73,5 +73,8 @@ Battleship.Controller = new Polypus.Controller({
 		}
 	}
 }, {
-	"load": "show_high_scores"
+	"load": "show_high_scores",
+	"click .modal_close": function() {
+		Modal.hide();
+	}
 });

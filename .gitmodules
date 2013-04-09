@@ -1,0 +1,3 @@
+[submodule "assets/js/Polypus"]
+	path = assets/js/Polypus
+	url = git@github.com:minond/Polypus.git

@@ -79,7 +79,6 @@ Battleship.Game = new Polypus.Controller({
 
 	_start_game: function($GameLogic) {
 		// $GameLogic.initalize();
-		console.log($GameLogic);
 	},
 
 	/**

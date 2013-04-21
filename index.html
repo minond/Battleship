@@ -40,7 +40,7 @@
 		</div>
 		<center data-bindto-collection="Battleship.Game.boards">
 			<div class="holds_boards">
-				{all <div class="board_holder">
+				{all <div class="board_holder board_for_{owner}">
 					<div class="board_title">{title}</div>
 					<table class="board {owner}" data-board_id={__id}>
 						<!--placeholder
@@ -72,6 +72,12 @@
 			</div>
 		</span>
 
+		<div class="sidebarpanel game_messages" data-bindto-model="Battleship.Game.state">{message}</div>
+
+		<div class="sidebarpanel game_actions">
+			<input type="button" id="reset_game" value="Reset Game" />
+		</div>
+
 		<span data-tmpl-name="player_name">
 			<p>Welcome to Battleship! Please enter your name to start a new game:</p>
 			<input type="text" data-bindto-model="Battleship.Game.my_board" data-bindto-property="title" id="player_name" placeholder="Your name" />
@@ -91,11 +97,13 @@
 		<script type="text/javascript" src="/Polypus/src/controller.js"></script>
 		<script type="text/javascript" src="/Polypus/src/model.js"></script>
 		<script type="text/javascript" src="/Polypus/src/collection.js"></script>
+		<script type="text/javascript" src="/Polypus/src/template.js"></script>
 		<script type="text/javascript" src="/Polypus/src/service.js"></script>
 		<script type="text/javascript" src="/Polypus/src/services/tabular.js"></script>
 		<script type="text/javascript" src="/Polypus/src/services/persist.js"></script>
 		<script type="text/javascript" src="/Polypus/src/services/sync.js"></script>
-		<script type="text/javascript" src="/Polypus/src/template.js"></script>
+		<script type="text/javascript" src="/Polypus/src/services/tmpl.js"></script>
+		<script type="text/javascript" src="/Polypus/src/services/ajax.js"></script>
 		<script type="text/javascript" src="/Polypus/src/auto/operators.js"></script>
 		<script type="text/javascript" src="/Polypus/src/auto/templates.js"></script>
 		<script type="text/javascript" src="/Polypus/src/auto/binding.js"></script>
@@ -110,6 +118,8 @@
 		<!-- <script type="text/javascript" src="assets/js/Polypus/src/services/tabular.js"></script> -->
 		<!-- <script type="text/javascript" src="assets/js/Polypus/src/services/persist.js"></script> -->
 		<!-- <script type="text/javascript" src="assets/js/Polypus/src/services/sync.js"></script> -->
+		<!-- <script type="text/javascript" src="assets/js/Polypus/src/services/tmpl.js"></script> -->
+		<!-- <script type="text/javascript" src="assets/js/Polypus/src/services/ajax.js"></script> -->
 		<!-- <script type="text/javascript" src="assets/js/Polypus/src/template.js"></script> -->
 		<!-- <script type="text/javascript" src="assets/js/Polypus/src/auto/operators.js"></script> -->
 		<!-- <script type="text/javascript" src="assets/js/Polypus/src/auto/templates.js"></script> -->
@@ -121,6 +131,7 @@
 		<script type="text/javascript" src="assets/js/models/Piece.js"></script>
 		<script type="text/javascript" src="assets/js/models/Board.js"></script>
 		<script type="text/javascript" src="assets/js/models/Modal.js"></script>
+		<script type="text/javascript" src="assets/js/models/State.js"></script>
 		<script type="text/javascript" src="assets/js/collections/Ships.js"></script>
 		<script type="text/javascript" src="assets/js/models/ships.js"></script>
 		<script type="text/javascript" src="assets/js/logic.js"></script>

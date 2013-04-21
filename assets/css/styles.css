@@ -2,7 +2,7 @@
  * board styles
  */
 .holds_boards {
-	margin: 150px;
+	margin-top: 150px;
 	display: block;
 }
 
@@ -15,12 +15,13 @@
 	border: 1px solid #cccccc;
 }
 
-.board.opponent td {
-	cursor: pointer;
-	height: 20px;
-	width: 20px;
-}
+/* .board.opponent td { */
+/* 	cursor: pointer; */
+/* 	height: 20px; */
+/* 	width: 20px; */
+/* } */
 
+.board.opponent td,
 .board.player td {
 	height: 30px;
 	width: 30px;
@@ -81,6 +82,14 @@
 .board_title {
 	font: bold 40px monospace;
 	margin-bottom: 20px;
+}
+
+.board_for_player .board_title {
+	color: rgb(24, 24, 150);
+}
+
+.board_for_opponent .board_title {
+	color: rgb(238, 92, 92);
 }
 
 /**
@@ -225,4 +234,27 @@
 	color: rgb(59, 113, 194);
 	text-align: center;
 	margin: 0px 30px;
+}
+
+/**
+ * side panels
+ */
+.sidebarpanel {
+	position: fixed;
+	right: -1px;
+	border: 1px solid #cecece;
+	padding: 5px 10px;
+	border-bottom-left-radius: 2px;
+	border-top-left-radius: 2px;
+	box-shadow: 2px 4px 8px #cecece;
+	font: 12px monospace;
+	background-color: white;
+}
+
+.game_actions {
+	bottom: 20px;
+}
+
+.game_messages {
+	bottom: 70px;
 }

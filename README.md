@@ -9,7 +9,7 @@ For class.
 * 20   User input in the form of text, select options, and/or buttons
 20   User input in the form of mouse clicks
 * 20   Dynamic modification of HTML using innerHTML or DOM functions
-20   Use of XMLHttpRequest to load JSON or XML game data that is displayed on the grid page
+* 20   Use of XMLHttpRequest to load JSON or XML game data that is displayed on the grid page
 * 20   Incorporates HTML 5 audio tags, video tags, canvas, or local storage
 120  Game logic code
 * 250  TOTAL

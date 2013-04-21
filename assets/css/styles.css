@@ -241,20 +241,40 @@
  */
 .sidebarpanel {
 	position: fixed;
-	right: -1px;
+	left: -1px;
 	border: 1px solid #cecece;
 	padding: 5px 10px;
-	border-bottom-left-radius: 2px;
-	border-top-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	border-top-right-radius: 2px;
 	box-shadow: 2px 4px 8px #cecece;
 	font: 12px monospace;
 	background-color: white;
 }
 
 .game_actions {
-	bottom: 20px;
+	bottom: 50px;
 }
 
 .game_messages {
-	bottom: 70px;
+	bottom: 110px;
+	width: 500px;
+	max-height: 210px;
+	overflow-y: scroll;
+	z-index: 8;
+}
+
+.game_messages .message {
+	color: black;
+}
+
+.game_messages .info {
+	color: gray
+}
+
+.game_messages .error {
+	color: red;
+}
+
+.game_messages:hover {
+	opacity: .2;
 }

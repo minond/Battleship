@@ -53,6 +53,7 @@ Battleship.Board = new Polypus.Model({
 	 */
 	__redraw__: function() {
 		this.publish_redraw_request();
+		Battleship.Game.state.info("Redrawing board (" + this.title + ")");
 	},
 
 	/**

@@ -59,37 +59,37 @@ Battleship.Game = new Polypus.Controller({
 	my_opponent: null,
 
 	/**
-	 * hide message element
-	 */
-	hide_msg: Modal.hide.bind(Modal),
-
-	/**
 	 * continues game in progress or starts a new one
 	 */
 	__load__: function() {
-		var newgame = this._persist_boards() === 0;
+		this.state.message("Checking game state...");
 
-		if (newgame) {
+		if (this._persist_boards() === 0) {
+			this.state.message("Creating new game...");
 			this._create_new_boards();
 			this._show_new_game_message();
 		} else {
+			this.state.message("Retrieving game...");
 			this._find_previous_boards();
+			this._start_game();
 		}
 
 		this._persist_board_info();
+	},
 
-newgame = true;
-		if (newgame) {
-			this._retrieve_game_progress();
-		}
+	_start_game: function($GameLogic) {
+		// $GameLogic.initalize();
+		console.log($GameLogic);
 	},
 
 	/**
 	 * load game data
 	 */
-	_retrieve_game_progress: function($Ajax) {
-		var progress = $Ajax.get({ url: this.progress_file }),
-			ok = false;
+	_retrieve_new_game_progress: function($Ajax) {
+		var ok = false, progress;
+
+		this.state.message("Loading game progress data...");
+		progress = $Ajax.get({ url: this.progress_file });
 
 		try {
 			progress = JSON.parse(progress);
@@ -100,7 +100,38 @@ newgame = true;
 		}
 
 		if (ok && progress.pieces) {
+			this.state.message("Successfully retrieved data!");
+			this._add_pieces_to(this.my_board, progress.pieces.player);
+			this._add_pieces_to(this.my_opponent, progress.pieces.opponent);
+			this.state.message("Progress loaded!");
 		}
+	},
+
+	/**
+	 * add game pieces to a board
+	 * @param Battleship.Board
+	 * @param array
+	 */
+	_add_pieces_to: function(board, pieces, $Battleship) {
+		var ship, that = this;
+
+		Polypus.adjutor.foreach(pieces, function(i, piece) {
+			ship = $Battleship.Ships.get_by_name(piece.ship);
+
+			if (ship) {
+				board.pieces.create({
+					ship: ship,
+					orientation: piece.orientation,
+					x: piece.x,
+					y: piece.y
+				});
+
+				that.state.message(
+					"Game piece added to board (" + board.title + ")");
+			} else {
+				that.state.error("Invalid ship: " + piece.ship);
+			}
+		});
 	},
 
 	/**
@@ -167,7 +198,7 @@ newgame = true;
 			player: this.my_board.title
 		}), "auto");
 
-		setTimeout(this.hide_msg.bind(this), 1000);
+		setTimeout(this._hide_msg.bind(this), 1000);
 	},
 
 	/**
@@ -180,11 +211,16 @@ newgame = true;
 	},
 
 	/**
+	 * hide message element
+	 */
+	_hide_msg: Modal.hide.bind(Modal),
+
+	/**
 	 * unsets persisted collection
 	 * @param boolean dontreload
 	 * @param Polypus.Service.$Persist
 	 */
-	reset: function(dontreload, $Persist) {
+	_reset: function(dontreload, $Persist) {
 		for (var key in this.keys) {
 			$Persist.unset_collection(this.keys[ key ]);
 		}
@@ -195,11 +231,18 @@ newgame = true;
 	},
 }, {
 	// message element "x" (close) click
-	"click .modal_close": "hide_msg",
+	"click .modal_close": "_hide_msg",
 
 	// start new game trigger
 	"click .start_game": function() {
-		this.hide_msg();
+		this._hide_msg();
 		this._show_start_game_message();
+		this._retrieve_new_game_progress();
+		this._start_game();
+	},
+
+	// reset button
+	"click #reset_game": function() {
+		this._reset();
 	}
 });

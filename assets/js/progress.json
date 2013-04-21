@@ -1,6 +1,20 @@
 {
 	"pieces": {
-		"player": [],
-		"opponent": []
+		"player": [
+			{
+				"ship": "Clipper",
+				"orientation": "horizontal",
+				"x": 0,
+				"y": 0
+			}
+		],
+		"opponent": [
+			{
+				"ship": "Clipper",
+				"orientation": "horizontal",
+				"x": 1,
+				"y": 1
+			}
+		]
 	}
 }

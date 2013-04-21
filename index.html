@@ -38,15 +38,17 @@
 				placeholder-->
 			</table>
 		</div>
-		<center data-bindto-collection="Battleship.Game.boards" style="display: none">
-			{all <div class="board_holder">
-				<div class="board_title">{title}</div>
-				<table class="board {owner}" data-board_id={__id}>
-					<!--placeholder
-					{rows* <tr>{columns* <td></td>}</tr>}
-					placeholder-->
-				</table>
-			</div>}
+		<center data-bindto-collection="Battleship.Game.boards">
+			<div class="holds_boards">
+				{all <div class="board_holder">
+					<div class="board_title">{title}</div>
+					<table class="board {owner}" data-board_id={__id}>
+						<!--placeholder
+						{rows* <tr>{columns* <td></td>}</tr>}
+						placeholder-->
+					</table>
+				</div>}
+			<div>
 		</center>
 		<span data-bindto-model="Modal" data-tmpl-name="modal">
 			<div id="modal" style="display: {display? none};">
@@ -69,10 +71,18 @@
 				</div>}
 			</div>
 		</span>
+
 		<span data-tmpl-name="player_name">
-			<span>What's your name:</span>
-			<input data-bindto-property="title" id="player_name" value="{title}" />
-			<input type="button" value="Start" class="close_modal" />
+			<p>Welcome to Battleship! Please enter your name to start a new game:</p>
+			<input type="text" data-bindto-model="Battleship.Game.my_board" data-bindto-property="title" id="player_name" placeholder="Your name" />
+			<input type="button" value="Go!" class="start_game" />
+		</span>
+
+		<span data-tmpl-name="new_game_msg">
+			<div class="new_game_msg">
+				<div class="players">"{player}" vs. "{opponent}"</div>
+				<div class="go">Go!</div>
+			</div>
 		</span>
 
 		<script type="text/javascript" src="/Polypus/src/polypus.js"></script>
@@ -113,6 +123,7 @@
 		<script type="text/javascript" src="assets/js/models/Modal.js"></script>
 		<script type="text/javascript" src="assets/js/collections/Ships.js"></script>
 		<script type="text/javascript" src="assets/js/models/ships.js"></script>
+		<script type="text/javascript" src="assets/js/logic.js"></script>
 		<script type="text/javascript" src="assets/js/game.js"></script>
 	</body>
 </html>

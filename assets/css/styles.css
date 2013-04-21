@@ -1,19 +1,11 @@
 /**
- * project description styles
- */
-.h_desc {
-	font: 13px Arial;
-	cursor: default;
-}
-
-.h_desc .info {
-	color: blueviolet;
-	font-weight: bold;
-}
-
-/**
  * board styles
  */
+.holds_boards {
+	margin: 150px;
+	display: block;
+}
+
 .board {
 	border-collapse: collapse;
 	border: 1px solid #cccccc;
@@ -216,4 +208,21 @@
 	width: 550px;
 	margin: 20px auto;
 	cursor: default;
+}
+
+/**
+ * game starting message
+ */
+.new_game_msg .players {
+	text-align: center;
+	font: bold 15px monospace;
+	margin: 20px 0px;
+}
+
+.new_game_msg .go {
+	font: bold 70px Arial;
+	font-style: italic;
+	color: rgb(59, 113, 194);
+	text-align: center;
+	margin: 0px 30px;
 }

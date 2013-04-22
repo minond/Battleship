@@ -7,9 +7,9 @@ Battleship.Piece = new Polypus.Model({
 	/**
 	 * a reference to a Ship model. used to get information shared accross all
 	 * shipts of the same type.
-	 * @var Ship
+	 * @var string
 	 */
-	ship: Battleship.Ship,
+	ship_name: null,
 
 	/**
 	 * ship orientation
@@ -26,5 +26,13 @@ Battleship.Piece = new Polypus.Model({
 	 * board coordinates
 	 * @var int
 	 */
-	y: null
+	y: null,
+
+	/**
+	 * ship getter
+	 * @return Battleship.Ship
+	 */
+	get_ship: function() {
+		return Battleship.Ships.get_by_name(this.ship_name);
+	}
 });

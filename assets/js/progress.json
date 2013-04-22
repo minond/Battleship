@@ -6,6 +6,18 @@
 				"orientation": "horizontal",
 				"x": 0,
 				"y": 0
+			},
+			{
+				"ship": "Dutch Frigate",
+				"orientation": "vertical",
+				"x": 3,
+				"y": 5
+			},
+			{
+				"ship": "Dutch Frigate",
+				"orientation": "vertical",
+				"x": 8,
+				"y": 4
 			}
 		],
 		"opponent": [

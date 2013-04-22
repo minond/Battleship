@@ -15,11 +15,11 @@
 	border: 1px solid #cccccc;
 }
 
-/* .board.opponent td { */
-/* 	cursor: pointer; */
+.board.opponent td {
+	cursor: pointer;
 /* 	height: 20px; */
 /* 	width: 20px; */
-/* } */
+}
 
 .board.opponent td,
 .board.player td {
@@ -56,7 +56,7 @@
 .board.opponent td.target-hit {
 	cursor: default;
 	background-size: 34px 26px;
-	background-position: -12px -6px;
+	background-position: -6px -1px;
 }
 
 .board.player td.target-hit {
@@ -67,7 +67,7 @@
 /**
  * ship pieces
  */
-.board.player td.ship-piece {
+.board/*.player*/ td.ship-piece {
 	background-color: #cecece;
 }
 
@@ -261,6 +261,10 @@
 	max-height: 210px;
 	overflow-y: scroll;
 	z-index: 8;
+}
+
+.game_messages.hide {
+	left: -1000px;
 }
 
 .game_messages .message {

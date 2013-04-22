@@ -74,11 +74,20 @@ Battleship.Game = new Polypus.Controller({
 			this._start_game();
 		}
 
+		// listen to any new pieces or shots
+		this.my_board.pieces.observe("add", this.handle_board_redraw);
+		this.my_board.shots.observe("add", this.handle_board_redraw);
+		this.my_opponent.pieces.observe("add", this.handle_board_redraw);
+		this.my_opponent.shots.observe("add", this.handle_board_redraw);
+
 		this._persist_board_info();
 	},
 
+	/**
+	 * initializes the game turn tracker
+	 */
 	_start_game: function($GameLogic) {
-		// $GameLogic.initalize();
+		$GameLogic.initalize();
 	},
 
 	/**
@@ -119,7 +128,7 @@ Battleship.Game = new Polypus.Controller({
 
 			if (ship) {
 				board.pieces.create({
-					ship: ship,
+					ship_name: ship.get_name(),
 					orientation: piece.orientation,
 					x: piece.x,
 					y: piece.y
@@ -228,6 +237,106 @@ Battleship.Game = new Polypus.Controller({
 			window.location.reload();
 		}
 	},
+
+	/**
+	 * find a board piece (Piece or Shot, anything with x/y coordinates)
+	 * @param Battleship.Shot|Battleship.Piece
+	 * @return Node
+	 */
+	_find_game_piece_cell: function(table, piece) {
+		var row = table.rows[ piece.y ];
+		return row ? row.cells[ piece.x ] : null;
+	},
+
+	/**
+	 * NOTE: only care about length, it's safe to assument width will always be 1
+	 * @param Battleship.Piece
+	 * @return array
+	 */
+	_generate_piece_used_spots_array: function(piece, $Battleship) {
+		var generator, spots = [], ship = piece.get_ship();
+
+		switch (piece.orientation) {
+			case $Battleship.Piece.orientation.horizontal:
+				generator = function(i) {
+					spots.push({
+						x: piece.x + i,
+						y: piece.y
+					});
+				};
+				break;
+
+			case $Battleship.Piece.orientation.vertical:
+				generator = function(i) {
+					spots.push({
+						x: piece.x,
+						y: piece.y + i
+					});
+				};
+				break;
+		}
+
+		Polypus.adjutor.times(ship.length, generator);
+		return spots;
+	},
+
+	/**
+	 * user clicks on opponent's board
+	 * @param object coordinates
+	 * return boolean - shot's success
+	 */
+	_trigger_user_fire: function(coordinates, $GameLogic) {
+		var great_success = $GameLogic.fire(coordinates, $GameLogic.players.player);
+
+		if (great_success === true) {
+			this.state.message("Good job!");
+		} else if (great_success === false) {
+			this.state.message("Maybe next time...");
+		}
+	},
+
+	/**
+	 * adds pieces to board. only in charge of ui, any logic should be handled
+	 * elsewhere.
+	 */
+	handle_board_redraw: function(prop, val, $Battleship) {
+		var game = $Battleship.Game, board, table, cells, cell, i , len;
+
+		Battleship.Game.boards.foreach(function(i, board) {
+			table = board.get_element(), cells, cell, i , len;
+
+			if (table) {
+				cells = table.querySelectorAll("td");
+
+				// clean up
+				for (i = 0, len = cells.length; i < len; i++) {
+					cells[ i ].className = "";
+				}
+
+				// pieces
+				board.pieces.foreach(function(i, piece) {
+					Polypus.adjutor.foreach(
+						game._generate_piece_used_spots_array(piece),
+						function(i, spot) {
+							if (cell = game._find_game_piece_cell(table, spot)) {
+								cell.classList.add("ship-piece");
+							}
+						}
+					);
+				});
+
+				// shots
+				board.shots.foreach(function(i, shot) {
+					if (cell = game._find_game_piece_cell(table, shot)) {
+						cell.classList.add("target");
+						cell.classList.add("target-" + shot.outcome);
+					}
+				});
+			} else {
+				game.state.error("Table not found");
+			}
+		});
+	}
 }, {
 	// message element "x" (close) click
 	"click .modal_close": "_hide_msg",
@@ -243,5 +352,23 @@ Battleship.Game = new Polypus.Controller({
 	// reset button
 	"click #reset_game": function() {
 		this._reset();
+	},
+
+	// hide logs
+	"click #hide_logs": function(click, btn) {
+		var klass = "hide",
+			el = document.querySelector(".game_messages"),
+			val = el.classList.contains(klass) ? "Hide Logs" : "Show Logs";
+
+		btn.value = val;
+		el.classList.toggle(klass);
+	},
+
+	// user fire/click
+	"click .board td": function(click, td) {
+		this._trigger_user_fire({
+			x: td.cellIndex,
+			y: td.parentNode.rowIndex
+		});
 	}
 });

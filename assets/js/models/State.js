@@ -15,6 +15,7 @@ Battleship.State = new Polypus.Model({
 	 * @param string text
 	 */
 	message: function(text) {
+		console && console.log && console.log(text);
 		this.add_messages({ text: text, type: "message" });
 	},
 
@@ -23,6 +24,7 @@ Battleship.State = new Polypus.Model({
 	 * @param string text
 	 */
 	info: function(text) {
+		console && console.info && console.info(text);
 		this.add_messages({ text: text, type: "info" });
 	},
 
@@ -31,6 +33,7 @@ Battleship.State = new Polypus.Model({
 	 * @param string text
 	 */
 	error: function(text) {
+		console && console.error && console.error(text);
 		this.add_messages({ text: text, type: "error" });
 	},
 

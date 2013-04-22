@@ -52,12 +52,31 @@ Battleship.Board = new Polypus.Model({
 	 * should only call publish_redraw_request
 	 */
 	__redraw__: function() {
-		this.publish_redraw_request();
 		Battleship.Game.state.info("Redrawing board (" + this.title + ")");
+		this.publish_redraw_request();
 	},
 
 	/**
 	 * acts as a dummy funtion used only by the observer
 	 */
-	publish_redraw_request: function() {}
+	publish_redraw_request: function() {},
+
+	/**
+	 * finds this board's output element (table node)
+	 * @return Node
+	 */
+	get_element: function() {
+		return document.querySelector(
+			"table[data-board_id='" + this.__id + "']");
+	},
+
+	/**
+	 * @param int x
+	 * @param int y
+	 * @return Node
+	 */
+	get_cell: function(x, y) {
+		var el = this.get_element();
+		return !el || !el.rows[ y ] ? null : el.rows[ y ].cells[ x ];
+	}
 });

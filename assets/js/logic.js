@@ -149,7 +149,6 @@ Battleship.GameLogic = new Polypus.Service("GameLogic", {
 		} else {
 			// not your turn
 			great_success = null;
-			state.message("It's not your turn");
 		}
 
 		return great_success;

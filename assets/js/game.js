@@ -369,7 +369,7 @@ Battleship.Game = new Polypus.Controller({
 	},
 
 	// user fire/click
-	"click .board td": function(click, td) {
+	"click .board.opponent td": function(click, td) {
 		this._trigger_user_fire({
 			x: td.cellIndex,
 			y: td.parentNode.rowIndex

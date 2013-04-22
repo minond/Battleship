@@ -34,15 +34,11 @@
 	background-image: url(../img/miss.jpg);
 	background-repeat: no-repeat;
 	background-position: center;
-}
-
-.board.player td.target-miss {
 	background-size: 39px 41px;
 }
 
 .board.opponent td.target-miss {
 	cursor: default;
-	background-size: 27px 31px;
 }
 
 /**
@@ -51,23 +47,18 @@
 .board td.target-hit {
 	background-image: url(../img/explosion.png);
 	background-repeat: no-repeat;
+	background-size: 55px 41px;
+	background-position: -22px -9px;
 }
 
 .board.opponent td.target-hit {
 	cursor: default;
-	background-size: 34px 26px;
-	background-position: -6px -1px;
-}
-
-.board.player td.target-hit {
-	background-size: 55px 41px;
-	background-position: -22px -9px;
 }
 
 /**
  * ship pieces
  */
-.board/*.player*/ td.ship-piece {
+.board.player td.ship-piece {
 	background-color: #cecece;
 }
 

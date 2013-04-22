@@ -77,7 +77,7 @@ Battleship.ComputerAI = new Polypus.Service("ComputerAI", {
 				// another random hit
 				else {
 					try_neighbour_for.ignore = true;
-					coordinates = this._get_random_coordinates();
+					coordinates = this._find_best_shot();
 				}
 			}
 		}

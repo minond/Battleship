@@ -4,8 +4,8 @@
 			{
 				"ship": "Clipper",
 				"orientation": "horizontal",
-				"x": 0,
-				"y": 0
+				"x": 1,
+				"y": 1
 			},
 			{
 				"ship": "Dutch Frigate",
@@ -26,6 +26,18 @@
 				"orientation": "horizontal",
 				"x": 1,
 				"y": 1
+			},
+			{
+				"ship": "Dutch Frigate",
+				"orientation": "vertical",
+				"x": 3,
+				"y": 5
+			},
+			{
+				"ship": "Dutch Frigate",
+				"orientation": "vertical",
+				"x": 8,
+				"y": 4
 			}
 		]
 	}

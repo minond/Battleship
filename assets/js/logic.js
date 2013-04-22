@@ -17,6 +17,11 @@ Battleship.GameLogic = new Polypus.Service("GameLogic", {
 	_turn_owner: null,
 
 	/**
+	 * @var string
+	 */
+	winner: null,
+
+	/**
 	 * display turn message
 	 */
 	_display_turn_message: function($Battleship) {
@@ -79,6 +84,7 @@ Battleship.GameLogic = new Polypus.Service("GameLogic", {
 	 */
 	declare_winner: function(shooter, $Battleship) {
 		var board = $Battleship.Game.boards.get_by_owner(shooter);
+		this.winner = shooter;
 		$Battleship.Game._msg(board.title + " is the winner!");
 	},
 
@@ -127,6 +133,7 @@ Battleship.GameLogic = new Polypus.Service("GameLogic", {
 						.querySelectorAll("td.ship-piece:not(.target)")
 						.length) {
 						this.declare_winner(shooter);
+						notick = true;
 					}
 				}
 			} else {
@@ -136,7 +143,9 @@ Battleship.GameLogic = new Polypus.Service("GameLogic", {
 			}
 
 			// move to next turn?
-			notick !== true && this.tick();
+			if (notick !== true) {
+				this.tick();
+			}
 		} else {
 			// not your turn
 			great_success = null;

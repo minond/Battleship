@@ -285,13 +285,17 @@ Battleship.Game = new Polypus.Controller({
 	 * @param object coordinates
 	 * return boolean - shot's success
 	 */
-	_trigger_user_fire: function(coordinates, $GameLogic) {
+	_trigger_user_fire: function(coordinates, $GameLogic, $ComputerAI) {
 		var great_success = $GameLogic.fire(coordinates, $GameLogic.players.player);
 
 		if (great_success === true) {
 			this.state.message("Good job!");
 		} else if (great_success === false) {
 			this.state.message("Maybe next time...");
+		}
+
+		if (!$GameLogic.winner) {
+			$ComputerAI.fire();
 		}
 	},
 

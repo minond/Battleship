@@ -257,7 +257,7 @@
 
 .game_messages {
 	bottom: 110px;
-	width: 500px;
+	width: 200px;
 	max-height: 210px;
 	overflow-y: scroll;
 	z-index: 8;

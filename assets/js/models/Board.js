@@ -78,5 +78,15 @@ Battleship.Board = new Polypus.Model({
 	get_cell: function(x, y) {
 		var el = this.get_element();
 		return !el || !el.rows[ y ] ? null : el.rows[ y ].cells[ x ];
+	},
+
+	/**
+	 * @return object
+	 */
+	get_random_coordinates: function() {
+		return {
+			x: Math.floor(Math.random() * this.columns),
+			y: Math.floor(Math.random() * this.rows)
+		};
 	}
 });

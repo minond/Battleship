@@ -72,13 +72,13 @@
 			</div>
 		</span>
 
-		<div class="sidebarpanel game_messages hide" data-bindto-model="Battleship.Game.state">
+		<div class="sidebarpanel game_messages" data-bindto-model="Battleship.Game.state">
 			{get_latest_messages <b>-</b> <span class="{type}">{text}</span><br />}
 		</div>
 
 		<div class="sidebarpanel game_actions">
 			<input type="button" id="reset_game" value="Reset Game" />
-			<input type="button" id="hide_logs" value="Show Logs" />
+			<input type="button" id="hide_logs" value="Hide Logs" />
 		</div>
 
 		<span data-tmpl-name="player_name">
@@ -124,6 +124,7 @@
 		<script type="text/javascript" src="assets/js/collections/Ships.js"></script>
 		<script type="text/javascript" src="assets/js/models/ships.js"></script>
 		<script type="text/javascript" src="assets/js/logic.js"></script>
+		<script type="text/javascript" src="assets/js/ai.js"></script>
 		<script type="text/javascript" src="assets/js/game.js"></script>
 	</body>
 </html>
